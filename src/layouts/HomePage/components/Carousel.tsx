@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { BookModel } from "../../../models/BookModel";
+import { SpinnerLoading } from "../../../Utils/SpinnerLoading";
 import { ReturnBook } from "../components/ReturnBook";
 export const Carousel = () => {
     const [books, setBook] = useState<BookModel[]>([]);
@@ -41,9 +42,7 @@ export const Carousel = () => {
 
     if (isLoading) {
         return (
-            <div className="container md-5">
-                <p>Loading...</p>
-            </div>
+          <SpinnerLoading />
         );
     }
 
