@@ -91,13 +91,14 @@ export const SearchBooksPage = () => {
     }
 
     const categoryField = (value: string) => {
+        value = value.toLowerCase();
         if (
-            value.toLowerCase() === 'fe' || 
-            value.toLowerCase() === 'be' || 
-            value.toLowerCase() === 'data' || 
-            value.toLowerCase() === 'devops'
+            value === 'fe' || 
+            value === 'be' || 
+            value === 'data' || 
+            value === 'devops'
         ) {
-            setCategorySelection(value);
+            setCategorySelection(value === 'fe'?'Front End':value === 'be'?'Back End':value === 'data'?'Data':value === 'devops'?'Devops':'');
             setSearchUrl(`/search/findByCategory?category=${value}&page=0&size=${booksPerPage}`)
         } else {
             setCategorySelection('All');

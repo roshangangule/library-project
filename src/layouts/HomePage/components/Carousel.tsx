@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { BookModel } from "../../../models/BookModel";
 import { SpinnerLoading } from "../../../Utils/SpinnerLoading";
 import { ReturnBook } from "../components/ReturnBook";
@@ -18,7 +19,9 @@ export const Carousel = () => {
             }
 
             const loadedBooks: BookModel[] = [];
-            const responseData = await response.json();
+            const responseJson = await response.json();
+
+            const responseData = responseJson._embedded.books;
             for (const key in responseData) {
                 loadedBooks.push({
                     id: responseData[key].id,
@@ -97,7 +100,7 @@ export const Carousel = () => {
                     </div>
                 </div>
                 <div className="homepage-carousel-title mt-3">
-                    <a className="btn btn-outline-secondary btn-lg" href="#">View More</a>
+                    <Link className="btn btn-outline-secondary btn-lg" to="/search">View More</Link>
                 </div>
             </div>
         </div>
