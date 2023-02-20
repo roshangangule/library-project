@@ -21,7 +21,9 @@ export const BookCheckoutPage = () => {
         throw new Error("Something went wrong!");
       }
 
-      const responseJson = await response.json();
+      const responsedData = await response.json();
+
+      const responseJson = responsedData.data;
 
       const loadedBook: BookModel = {
         id: responseJson.id,

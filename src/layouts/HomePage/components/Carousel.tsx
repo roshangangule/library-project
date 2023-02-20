@@ -21,7 +21,7 @@ export const Carousel = () => {
             const loadedBooks: BookModel[] = [];
             const responseJson = await response.json();
 
-            const responseData = responseJson._embedded.books;
+            const responseData = responseJson.data.books;
             for (const key in responseData) {
                 loadedBooks.push({
                     id: responseData[key].id,

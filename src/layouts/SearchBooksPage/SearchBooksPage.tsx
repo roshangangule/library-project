@@ -38,10 +38,10 @@ export const SearchBooksPage = () => {
 
             const responseJson = await response.json();
 
-            const responseData = responseJson._embedded.books;
+            const responseData = responseJson.data.books;
 
-            setTotalAmountOfBooks(responseJson.page.totalElements);
-            setTotalPages(responseJson.page.totalPages);
+            setTotalAmountOfBooks(responseJson.data.page.totalElements);
+            setTotalPages(responseJson.data.page.totalPages);
 
             const loadedBooks: BookModel[] = [];
 
