@@ -86,7 +86,7 @@ export const SearchBooksPage = () => {
         if (search === '') {
             setSearchUrl('');
         } else {
-            setSearchUrl(`/search/findByTitleContaining?title=${search}&page=0&size=${booksPerPage}`)
+            setSearchUrl(`/search/title?title=${search}&page=0&size=${booksPerPage}`)
         }
     }
 
@@ -99,7 +99,7 @@ export const SearchBooksPage = () => {
             value === 'devops'
         ) {
             setCategorySelection(value === 'fe'?'Front End':value === 'be'?'Back End':value === 'data'?'Data':value === 'devops'?'Devops':'');
-            setSearchUrl(`/search/findByCategory?category=${value}&page=0&size=${booksPerPage}`)
+            setSearchUrl(`/search/category?category=${value}&page=0&size=${booksPerPage}`)
         } else {
             setCategorySelection('All');
             setSearchUrl(`?page=0&size=${booksPerPage}`)
